@@ -1,12 +1,20 @@
 {
-  "name": "just-pay",
+  "name": "@project/main",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "repository": "https://github.com/letsgitcracking/just-pay.git",
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/app/*",
+      "packages/components"
+    ]
+  },
+  "scripts": {
+    "start": "yarn workspace @project/server start",
+    "start:client": "yarn workspace @project/client start",
+    "start:mobile": "yarn workspace @project/mobile start"
+  }
 }
