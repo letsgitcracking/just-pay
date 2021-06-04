@@ -4,7 +4,7 @@ const router = express.Router();
 const RippleAPI = require('ripple-lib').RippleAPI;
 
 router.get('/', getCredientials, (req, res, next) => {
-    res.send(`Welcome address ${res.userAddress}`);
+    res.json(`Welcome address ${res.userAddress}`);
     console.log(`Welcome address ${res.userAddress}`)
     res.status(200);
     res.end();
@@ -23,7 +23,7 @@ router.get('/ripple', getCredientials, (req, res, next) => {
     }).then(info => {
         console.log(info);
         console.log('Retrieval successful.');
-        res.send(info);
+        res.json(info);
         /* end custom code -------------------------------------- */
     }).then(() => {
         return api.disconnect();
