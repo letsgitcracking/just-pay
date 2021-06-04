@@ -1,27 +1,11 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import {
-  BellIcon,
-  ClockIcon,
-  CogIcon,
-  CreditCardIcon,
-  DocumentReportIcon,
-  HomeIcon,
-  MenuAlt1Icon,
-  QuestionMarkCircleIcon,
-  ScaleIcon,
-  ShieldCheckIcon,
-  UserGroupIcon,
-  XIcon,
-} from '@heroicons/react/outline'
-import {
-  CashIcon,
-  CheckCircleIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-  OfficeBuildingIcon,
-  SearchIcon,
-} from '@heroicons/react/solid'
+import { Fragment, useState } from 'react';
+import JustPayLogo from './images/just-pay-logo-cyan-300-mark-white-text.svg';
+import SendMoney from './components/SendMoneyModal';
+import RippleAmount from './components/RippleAmount';
+import { Dialog, Menu, Transition } from '@headlessui/react';
+import { BellIcon, ClockIcon, CogIcon, CreditCardIcon, DocumentReportIcon, HomeIcon, MenuAlt1Icon, 
+  QuestionMarkCircleIcon, ScaleIcon, ShieldCheckIcon, UserGroupIcon, XIcon } from '@heroicons/react/outline';
+import { CashIcon, CheckCircleIcon, ChevronDownIcon, ChevronRightIcon, OfficeBuildingIcon, SearchIcon } from '@heroicons/react/solid';
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -36,20 +20,17 @@ const secondaryNavigation = [
   { name: 'Help', href: '#', icon: QuestionMarkCircleIcon },
   { name: 'Privacy', href: '#', icon: ShieldCheckIcon },
 ]
-const cards = [
-  { name: 'Account balance', href: '#', icon: ScaleIcon, amount: '$30,659.45' },
-  // More items...
-]
+
 const transactions = [
   {
     id: 1,
-    name: 'Payment to Molly Sanders',
+    name: 'Payment to Matt Hamilton',
     href: '#',
-    amount: '$20,000',
+    amount: '$10,000',
     currency: 'USD',
     status: 'success',
-    date: 'July 11, 2020',
-    datetime: '2020-07-11',
+    date: 'June 03, 2021',
+    datetime: '2020-06-03',
   },
   // More transactions...
 ]
@@ -63,9 +44,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
+export default function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -119,8 +99,8 @@ export default function Example() {
               <div className="flex-shrink-0 flex items-center px-4">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
-                  alt="Easywire logo"
+                  src={JustPayLogo}
+                  alt="JustPay logo"
                 />
               </div>
               <nav className="mt-5 flex-shrink-0 h-full divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
@@ -171,8 +151,8 @@ export default function Example() {
             <div className="flex items-center flex-shrink-0 px-4">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg"
-                alt="Easywire logo"
+                src={JustPayLogo}
+                alt="JustPay logo"
               />
             </div>
             <nav className="mt-5 flex-1 flex flex-col divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
@@ -255,11 +235,12 @@ export default function Example() {
                       <Menu.Button className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
                         <img
                           className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          src="https://pbs.twimg.com/profile_images/1027832857647927296/bsmf7PG6_400x400.jpg"
                           alt=""
                         />
                         <span className="hidden ml-3 text-gray-700 text-sm font-medium lg:block">
-                          <span className="sr-only">Open user menu for </span>Emilia Birch
+                          <span className="sr-only">Open user menu for </span>Elliot Lee
                         </span>
                         <ChevronDownIcon
                           className="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block"
@@ -338,18 +319,20 @@ export default function Example() {
                   <div className="flex items-center">
                     <img
                       className="hidden h-16 w-16 rounded-full sm:block"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                      // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                      src="https://pbs.twimg.com/profile_images/1027832857647927296/bsmf7PG6_400x400.jpg"
                       alt=""
                     />
                     <div>
                       <div className="flex items-center">
                         <img
                           className="h-16 w-16 rounded-full sm:hidden"
-                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                          // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                          src="https://pbs.twimg.com/profile_images/1027832857647927296/bsmf7PG6_400x400.jpg"
                           alt=""
                         />
                         <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
-                          Good morning, Emilia Birch
+                          Good morning, Elliot Lee
                         </h1>
                       </div>
                       <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
@@ -359,7 +342,7 @@ export default function Example() {
                             className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                             aria-hidden="true"
                           />
-                          Duke street studio
+                          San Francisco, CA
                         </dd>
                         <dt className="sr-only">Account status</dt>
                         <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
@@ -377,12 +360,7 @@ export default function Example() {
                   >
                     Add money
                   </button>
-                  <button
-                    type="button"
-                    className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-                  >
-                    Send money
-                  </button>
+                  <SendMoney />
                 </div>
               </div>
             </div>
@@ -393,32 +371,7 @@ export default function Example() {
               <h2 className="text-lg leading-6 font-medium text-gray-900">Overview</h2>
               <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card */}
-                {cards.map((card) => (
-                  <div key={card.name} className="bg-white overflow-hidden shadow rounded-lg">
-                    <div className="p-5">
-                      <div className="flex items-center">
-                        <div className="flex-shrink-0">
-                          <card.icon className="h-6 w-6 text-gray-400" aria-hidden="true" />
-                        </div>
-                        <div className="ml-5 w-0 flex-1">
-                          <dl>
-                            <dt className="text-sm font-medium text-gray-500 truncate">{card.name}</dt>
-                            <dd>
-                              <div className="text-lg font-medium text-gray-900">{card.amount}</div>
-                            </dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-gray-50 px-5 py-3">
-                      <div className="text-sm">
-                        <a href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
-                          View all
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                <RippleAmount/>
               </div>
             </div>
 
