@@ -35,6 +35,10 @@ router.get('/ripple', getCredientials, (req, res, next) => {
     });
 });
 
+router.post('/ripple', (req, res, next) => {
+    
+});
+
 function userAddress(req, res, next) {
     res.userAddress = 'rf1BiGeXwwQoi8Z2ueFYTEXSwuJYfV2Jpn';
     next();
