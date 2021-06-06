@@ -1,8 +1,9 @@
+if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
 const axios = require('axios');
 
 // Example credentials
-let address = "rMCcNuTcajgw7YTgBy1sys3b89QqjUrMpH"
-let secret = "sn3nxiW7v8KXzPzAqzyHXbSSKNuN9"
+// let address = "rMCcNuTcajgw7YTgBy1sys3b89QqjUrMpH"
+// let secret = "sn3nxiW7v8KXzPzAqzyHXbSSKNuN9"
 
 // Connect ---------------------------------------------------------------------
 const RippleAPI = require('ripple-lib').RippleAPI; // For Node.js. In browsers, use <script>.
@@ -39,8 +40,9 @@ api.on('connected', async () => {
     const preparedTx = await api.prepareTransaction({
         "TransactionType": "Payment",
         "Account": address,
-        "Amount": api.xrpToDrops("22"), // Same as "Amount": "22000000"
-        "Destination": "rUCzEr6jrEyMpjhs4wSdQdz4g8Y382NxfM"
+        "Amount": api.xrpToDrops("980"), // Same as "Amount": "22000000"
+        // "Amount": "999900000", // Same as "Amount": "22000000"
+        "Destination": "rU4LVjfn4n3BzUvJkdSDzRkzTBAQT5223r"
     }, {
         // Expire this transaction if it doesn't execute within ~5 minutes:
         "maxLedgerVersionOffset": 75
