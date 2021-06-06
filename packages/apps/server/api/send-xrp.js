@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 // Example credentials
 let address = "rMCcNuTcajgw7YTgBy1sys3b89QqjUrMpH"
 let secret = "sn3nxiW7v8KXzPzAqzyHXbSSKNuN9"
@@ -12,22 +14,14 @@ api.on('connected', async () => {
     // This doesn't technically need to happen after you call api.connect() but
     // it's convenient to do here because we can use await on the faucet call and
     // to wait for the new account to be funded.
-    const faucet_url = "https://xrpl.org/xrp-testnet-faucet.html"
-    const response = await fetch(faucet_url, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: '{}'
-    })
-    if (!response.ok) {
-        throw `Faucet returned an error: ${data.error}`
-    }
-    const data = await response.json()
-    address = data.account.address
-    secret = data.account.secret
-
-    console.log("Waiting until we have a validated starting sequence number...")
+    try {
+        const response = await axios.post('https://faucet.altnet.rippletest.net/accounts');
+        address = response.data.account.address;
+        secret = response.data.account.secret;
+        console.log("Waiting until we have a validated starting sequence number...");
+    } catch (error) {
+        console.log(`Faucet returned an error: ${error}`);
+    };
     // If you go too soon, the funding transaction might slip back a ledger and
     // then your starting Sequence number will be off. This is mostly relevant
     // when you want to use a Testnet account right after getting a reply from
