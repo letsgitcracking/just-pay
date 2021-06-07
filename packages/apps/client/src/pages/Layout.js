@@ -1,4 +1,6 @@
 import { Fragment, useState } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Logout from './Logout';
 import JustPayLogo from '../images/just-pay-logo-cyan-300-mark-white-text.svg';
 import SendMoney from '../components/SendMoneyModal';
 import RippleAmount from '../components/RippleAmount';
@@ -44,7 +46,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function App() {
+export default function Layout({ handleisLoggedIn }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
@@ -291,7 +293,7 @@ export default function App() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="#"
+                              href="/logout"
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
                                 'block px-4 py-2 text-sm text-gray-700'
@@ -513,6 +515,13 @@ export default function App() {
               </div>
             </div>
           </div>
+          <Switch>
+            
+            <Route path='/logout'>
+              <Logout handleisLoggedIn={handleisLoggedIn} />
+              <Redirect from='/logout' to='/' />
+            </Route>
+          </Switch>
         </main>
       </div>
     </div>
