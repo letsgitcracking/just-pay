@@ -3,7 +3,7 @@ import JustPayLogo from '../images/just-pay-logo-cyan-300-mark-white-text.svg';
 
 export default function Login({ handleisLoggedIn }) {
     const [email, setEmail] = useState('test@gmail.com');
-    const [password, setPassword] = useState('123456');
+    const [password, setPassword] = useState('123456abcdef');
     const handleSubmit = (event) => {
         event.preventDefault();
         handleisLoggedIn(true);
@@ -28,7 +28,7 @@ export default function Login({ handleisLoggedIn }) {
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                    <form onSubmit={handleSubmit}className="space-y-6" action="#">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email address
@@ -79,7 +79,7 @@ export default function Login({ handleisLoggedIn }) {
                             </div>
 
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                <a href="/" className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Forgot your password?
                   </a>
                             </div>
@@ -108,7 +108,7 @@ export default function Login({ handleisLoggedIn }) {
                         <div className="mt-6 grid grid-cols-3 gap-3">
                             <div>
                                 <a
-                                    href="#"
+                                    href="/"
                                     className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                                 >
                                     <span className="sr-only">Sign in with Facebook</span>
@@ -124,7 +124,7 @@ export default function Login({ handleisLoggedIn }) {
 
                             <div>
                                 <a
-                                    href="#"
+                                    href="/"
                                     className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                                 >
                                     <span className="sr-only">Sign in with Twitter</span>
@@ -136,7 +136,7 @@ export default function Login({ handleisLoggedIn }) {
 
                             <div>
                                 <a
-                                    href="#"
+                                    href="/"
                                     className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                                 >
                                     <span className="sr-only">Sign in with GitHub</span>
