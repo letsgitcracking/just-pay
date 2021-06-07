@@ -13,7 +13,8 @@
     ]
   },
   "scripts": {
-    "start": "yarn workspace @project/server start",
+    "start:server": "yarn workspace @project/server start",
+    "start:serverdev": "yarn workspace @project/server startdev",
     "start:client": "yarn workspace @project/client start",
     "start:mobile": "yarn workspace @project/mobile start"
   }
