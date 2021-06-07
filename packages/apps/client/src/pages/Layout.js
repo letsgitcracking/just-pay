@@ -515,13 +515,16 @@ export default function Layout({ handleisLoggedIn }) {
               </div>
             </div>
           </div>
-          <Switch>
+          {/* <Switch>
             
             <Route path='/logout'>
               <Logout handleisLoggedIn={handleisLoggedIn} />
               <Redirect from='/logout' to='/' />
             </Route>
-          </Switch>
+            <Route path='/'>
+              
+            </Route>
+          </Switch> */}
         </main>
       </div>
     </div>
