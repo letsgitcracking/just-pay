@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const RippleAPI = require('ripple-lib').RippleAPI;
+const SendMoney = require('../api/send-xrp');
 
 router.get('/', getCredientials, (req, res, next) => {
     res.json(`Welcome address ${res.userAddress}`);
@@ -35,8 +36,9 @@ router.get('/ripple', getCredientials, (req, res, next) => {
     });
 });
 
-router.post('/ripple', (req, res, next) => {
-    
+router.get('/send', (req, res, next) => {
+    SendMoney();
+    res.end();
 });
 
 function userAddress(req, res, next) {
